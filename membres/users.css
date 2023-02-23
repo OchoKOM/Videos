@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --color: #f5f5f5;
+    font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+}
+::-webkit-scrollbar{
+    appearance: none;
+    background: none;
+    width: 2px;
+    height: 2px;
+}
+::-webkit-scrollbar-thumb{
+    appearance: none;
+    background: #287dfc;
+    border-radius: 1px;
+}
+::-moz-scrollbar{
+    appearance: none;
+    -moz-appearance: none;
+    background: none;
+    width: 2px;
+    height: 2px;
+}
+::-moz-scrollbar-thumb{
+    appearance: none;
+    -moz-appearance: none;
+    background: #287dfc;
+    border-radius: 1px;
+}
+.savedUsers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    width: 97%;
+    gap: 3px;
+    padding: 5px 2px;
+    color: var(--color);
+    font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+}
+.savedUsers .savedPb{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    background: #69696946;
+    cursor: pointer;
+}
+.savedUsers .overlay{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.savedUsers .savedPb img{
+    max-width: 70px;
+    border-radius: 3px;
+    aspect-ratio: 1;
+}
+.savedUsers .savedPb .delete{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    aspect-ratio: 1;
+    padding: 10px;
+    border-radius: 2px;
+    background: crimson;
+    z-index: 2;
+}
+.savedUsers .savedPb .x{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.savedUsers .savedPb .delete span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 10px;
+    height: 1px;
+    background: #f5f5f5;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 45deg)) ;
+}
+.addUser{
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+.addUser .add{
+    position: relative;
+    background: #287dfc;
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 2px;
+}
+.addUser .add span{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 90deg));
+    width: 15px;
+    height: 2px;
+    background: #f5f5f5;
+}
+.addUser.new{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.submit{
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    background: #00d800;
+    cursor: pointer;
+    color: #f5f5f5 !important;
+    border-radius: 3px;
+}
+button:hover{
+    opacity: 1;
+}
+@media (prefers-color-scheme: light){
+    *{
+        --color: #287dfc;
+    }
+}
+@media (min-width:600px) {
+    ::-webkit-scrollbar{
+        appearance: none;
+        background: none;
+        width: 7px;
+        height: 7px;
+    }
+    ::-webkit-scrollbar-thumb{
+        appearance: none;
+        background: #287dfc;
+        border-radius: 3px;
+    }
+    ::-moz-scrollbar{
+        appearance: none;
+        -moz-appearance: none;
+        background: none;
+        width: 5px;
+        height: 5px;
+    }
+    ::-moz-scrollbar-thumb{
+        appearance: none;
+        -moz-appearance: none;
+        background: #287dfc;
+        border-radius: 3px;
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    .savedUsers{
+        flex-direction: row;
+        gap: 10px;
+        justify-content: flex-start;
+        max-width: 350px;
+        padding: 10px;
+        overflow-x: scroll;
+    }
+    .savedUsers .savedPb{
+        flex-direction: column;
+        width: min-content;
+    }
+    .savedUsers .savedPb img{
+        max-width: 120px;
+    }
+    .savedUsers .savedPb .delete{
+        top: -3px;
+        right: -3px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .savedUsers .savedPb .delete:hover{
+        opacity: 0.8;
+    }
+    .submit{
+        opacity: 0.8;
+    }
+}

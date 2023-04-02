@@ -1,0 +1,15 @@
+#Empecher l'accès direct aux dossiers
+Options -Indexes
+RewriteEngine On
+
+
+RewriteRule ^login?$ membres/login.php
+RewriteRule ^signup?$ membres/signup.php
+RewriteRule ^searchUser?$ membres/userSearch.php
+RewriteRule ^kom([0-9a-zA-Z]+) video.php?id=$1
+RewriteRule ^profil/([0-9]+) membres/profil.php?id=$1
+RewriteRule ^picture/([0-9]+) membres/pdp.php?id=$1
+RewriteRule ^my_videos/([0-9]+) membres/myVideos.php?vs=$1
+RewriteRule ^edit/([0-9]+) membres/edit.php?p=$1
+RewriteRule ^edit_video/([0-9a-zA-Z]+) edit/editVideo.php?v=$1
+RewriteRule ^profil/([0-9]+)-([0-9a-zA-Z]+) membres/profil.php?id=$1&name=$2

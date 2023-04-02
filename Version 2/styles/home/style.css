@@ -1,0 +1,219 @@
+@import url(../all/Poppins/poppins.css);
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+body{
+    background: #0a0a0a;
+}
+.content{
+    background: inherit;
+    top: 0;
+}
+.message h3{
+    width: 100%;
+    text-align: center;
+    color: #2a73fe;
+}
+.grid{
+    position: absolute;
+    top: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+    grid-gap: 10px;
+    min-width: 270px;
+    width:100%;
+    background: inherit;
+    padding: 30px 0;
+    overflow-y: scroll;
+}
+.grid.search{
+    top: 100px;
+}
+.links{
+    width: 100%;
+    height: 100%;
+    background: inherit;
+}
+.links .thumbNails{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: 0.2s;
+}
+.grid .links .thumbNails.playing{
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff;
+    transform: scale(1.14);
+    background: inherit;
+    transition: 0.5s;
+    z-index: 2;
+}
+.grid.search .links .thumbNails.playing{
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.links .thumbNails.playing .mini-player{
+    display: flex;
+}
+.links .auteur{
+    display: flex;
+    gap: 0.3em;
+    font-size: 0.7em;
+    text-decoration: none;
+    color: #2a73fe;
+}
+.links a{
+    color: #2a73fe;
+}
+.links a .mini-player{
+    position: relative;
+    aspect-ratio: 16/9;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 3px;
+    background: #000;
+    overflow: hidden;
+}
+.links a .mini-player img{
+    height: 100%;
+    width: 100%;
+}
+.links a .mini-player video{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+}
+.thumbNails.playing a .mini-player video{
+    visibility: visible;
+}
+.thumbNails.playing a .mini-player img{
+    display: none;
+}
+.thumbNails.playing a .mini-player button{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
+    outline-color: transparent;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    background: #2a73fe;
+    color: #000;
+    cursor: pointer;
+    z-index: 2;
+}
+.thumbNails.playing a .mini-player button{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
+    outline-color: transparent;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    background: #2a73fe;
+    color: #000;
+    cursor: pointer;
+    z-index: 2;
+}
+.thumbNails.playing a .mini-player button::before{
+    content: attr(data-time);
+    position: absolute;
+    left: 25px;
+    padding: 0 5px;
+    background: inherit;
+    border-radius: 2px;
+    z-index: 3;
+}
+.thumbNails.playing a .mini-player button.active::before{
+    content: attr(title);
+}
+.links .vidInf{
+    display: flex;
+    margin: 5px;  
+}
+.links .vidInf .avatar2{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+}
+.links .vidInf img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.links .vidInf .textInf{
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+    max-width: calc(100% - 60px);
+}
+@media (prefers-color-scheme: light) {
+    body{
+        background: #fff;
+    }
+    .grid .links .thumbNails.playing{
+        box-shadow: 0 0 5px #000;
+    }
+    .thumbNails.playing a .mini-player button{
+        border: 1px solid #fff;
+        color: #fff;
+    }
+    .links a img{
+        box-shadow: 0 0 5px #fff;
+    }
+}
+@media (max-width:600px) {
+    .links a img{
+        width: 100%;
+        height: auto;
+    }
+    .grid{
+        grid-template-columns: repeat(auto-fill, 350px);
+    }
+    .links .vidInf .avatar2{
+        height: 50px;
+        width: 50px;
+    }
+}
+@media (max-width:500px) {
+    .grid{
+        padding: 0 0 30px 0;
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+    .links .thumbNails{
+        border-radius: 0;
+    }
+    .grid .links .thumbNails.playing,.grid.search .links .thumbNails.playing{
+        box-shadow: 0 0 0 transparent;
+        transform: scale(1);
+    }
+    .thumbNails.playing a .mini-player button{
+        transition: 0s;
+    }
+    .links a img{
+        box-shadow: 0 0 5px transparent;
+    }
+    .links .vidInf .avatar2{
+        height: 40px;
+        width: 40px;
+    }
+}

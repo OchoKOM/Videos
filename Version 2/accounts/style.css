@@ -1,0 +1,405 @@
+@import url(../styles/all/Poppins/poppins.css);
+@import url(modal.css);
+@import url(users.css);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  text-decoration: none;
+  --color: #287dfc;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0a0a0a;
+}
+.nav {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: 120px;
+  height: 60px;
+  background: #000;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.579);
+  display: flex;
+  justify-content: space-between;
+  transition: height 0.5s, width 0.5s;
+  transition-delay: 0s, 0.75s;
+  border-radius: 7px;
+  overflow: hidden;
+  z-index: 3;
+}
+.nav.active {
+  width: 300px;
+  height: 400px;
+  padding-bottom: 10px;
+  transition: width 0.5s, height 0.5s;
+  transition-delay: 0s, 0.75s;
+}
+.nav .userBx {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+.nav.active .userBx {
+  width: calc(100% - 60px);
+}
+.nav .userBx .userName {
+  white-space: nowrap;
+  color: #888;
+  font-size: 1.1em;
+}
+.nav .userBx .imgBx {
+  position: relative;
+  min-width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  border: 5px solid #000;
+  overflow: hidden;
+}
+.nav .userBx .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.nav .menuToggle {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .menuToggle::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 2px;
+  background: #888;
+  transform: translateY(-10px);
+  box-shadow: 0 10px #888;
+  transition: 0.5s;
+}
+.nav .menuToggle::after {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 2px;
+  background: #888;
+  transform: translateY(10px);
+  transition: 0.5s;
+}
+.nav.active .menuToggle::before {
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 #888;
+}
+.nav.active .menuToggle::after {
+  transform: translateY(0px) rotate(-45deg);
+}
+.menu {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 60px);
+  margin-top: 60px;
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.menu li {
+  list-style: none;
+}
+.menu li a {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 1em;
+  color: #888;
+}
+.menu li a.active,
+.menu li a:hover {
+  color: #1e9bff;
+}
+.menu li a i {
+  font-size: 1.5em;
+  width: 25px;
+}
+
+.card {
+  position: absolute;
+  top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  gap: 30px;
+  border: 2px solid var(--clr);
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px  var(--clr);
+  transition: width 0.5s;
+}
+.card.signup {
+  top: 50px;
+}
+.card.login {
+  top: 100px;
+}
+.card h2 {
+  color: var(--clr);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.card .inputBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 250px;
+}
+.card .inputBox input {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  padding: 10px 0 5px;
+}
+.card .inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 10px 0 5px;
+  color: #ffffff80;
+  text-transform: uppercase;
+  pointer-events: none;
+  letter-spacing: 0.1em;
+  transition: 0.5s;
+}
+.card .inputBox input:valid ~ span,
+.card .inputBox input:focus ~ span {
+  color: #2196f3;
+  transform: translateY(-16px);
+  font-size: 0.65em;
+}
+.card .inputBox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  overflow: hidden;
+}
+.card .inputBox i::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff1b69, #ff0, #2196f3, #9c27b0, #ff1b69);
+  animation: animate 2s linear infinite;
+  transition: 0.5s;
+}
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 250px;
+  }
+}
+.inputBox input:valid ~ i::before,
+.inputBox input:focus ~ i::before {
+  left: 0;
+}
+.inputBox .img {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 5px #1e9bff;
+  border-radius: 50%;
+  transition: 0.5s;
+  object-fit: cover;
+}
+.inputBox .img:hover {
+  border-radius: 5px;
+}
+.inputBox .confirms {
+  position: absolute;
+  width: 80%;
+  height: 35px;
+  bottom: 0;
+  display: flex;
+  justify-content: right;
+}
+.inputBox .confirms.active {
+  justify-content: space-between;
+}
+.inputBox .conf-btns {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  padding: 3px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.inputBox .cancel {
+  background: none;
+  visibility: hidden;
+}
+.inputBox .choose {
+  background: #1e9bff;
+}
+.oth {
+  width: 100%;
+  cursor: pointer;
+}
+.btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.btns.ed {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.card a {
+  position: relative;
+  background: #fff;
+  padding: 10px 10px;
+  transition: 0.5s;
+}
+.card a:hover {
+  background: var(--clr);
+  box-shadow: 0 0 35px var(--clr);
+}
+.card a:hover button,
+a:hover p {
+  letter-spacing: 0.25em;
+  color: var(--clr);
+}
+.card a::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--bg);
+}
+.card a button,
+a p, a input {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: none;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.card .a {
+  color: var(--clr);
+}
+@media (prefers-color-scheme: light) {
+  body {
+    background: #fff;
+  }
+  .nav {
+    background: #a5c4ff;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.579);
+  }
+  .nav .userBx {
+    background: #a5c4ff;
+  }
+  .nav .userBx .userName {
+    color: #151515;
+  }
+  .nav .userBx .imgBx {
+    background: #000;
+    border: 5px solid #a5c4ff;
+  }
+  .nav .menuToggle::before {
+    background: #151515;
+    box-shadow: 0 10px #151515;
+  }
+  .nav .menuToggle::after {
+    background: #151515;
+  }
+  .nav.active .menuToggle::before {
+    box-shadow: 0 0 #151515;
+  }
+  .menu {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .menu li a {
+    color: #151515;
+  }
+  .menu li a.active,
+  .menu li a:hover {
+    color: #1e9bff;
+  }
+  .card .inputBox input {
+    color: #000;
+  }
+  .card .inputBox span {
+    color: #00000080;
+  }
+  .card .inputBox input:valid ~ span,
+  .card .inputBox input:focus ~ span {
+    color: #2196f3;
+  }
+  .card .inputBox i {
+    background: #000;
+  }
+  .inputBox .choose {
+    background: #1e9bff;
+  }
+  .card a {
+    position: relative;
+    background: #000;
+    padding: 10px 10px;
+    transition: 0.5s;
+  }
+  .card a button,
+  .card a p {
+    color: #fff;
+  }
+  .card a:hover button,
+  .card a:hover p {
+    color: var(--clr);
+  }
+}
+@media (max-width: 320px) {
+  .nav {
+    max-width: 250px;
+  }
+  .nav.active {
+    height: 450px;
+  }
+  .card {
+    max-width: 270px;
+  }
+}

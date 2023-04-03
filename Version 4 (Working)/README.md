@@ -7,4 +7,4 @@ https://t.me/+XCKtMYOdkck2NmU0
 
 EN
 
-I'm still working on it the version will be available soon if you want to help me you can send a message on my telegram group : [https://t.me/Ochokom](https://t.me/web_dev_with_ocho)
+I'm still working on it the version will be available soon if you want to help me you can send a message on my telegram group : https://t.me/+XCKtMYOdkck2NmU0

@@ -2,14 +2,21 @@
 
 FR
 
+
 Pour telecharger le projet veuillez visiter les liens ci dessous
 
 Version 1 : https://github.com/OchoKOM/Videos/tree/v1
+
 Version 2 : https://github.com/OchoKOM/Videos/tree/v2
+
 Version 3 : https://github.com/OchoKOM/Videos/tree/v3
+
 Version 4 : https://github.com/OchoKOM/Videos/tree/v4
+
 Version 5 : https://github.com/OchoKOM/Videos/tree/v5
+
 Version 6 : https://github.com/OchoKOM/Videos/tree/v6
+
 
 Pour le fonctionnement du projet
 Vous devez utiliser uniquement le serveur apache (en utilisant wamp, xampp ou mamp) 
@@ -26,14 +33,21 @@ pour s'enregistrer
 
 EN
 
+
 To download the project please visit the links below
 
 Version 1: https://github.com/OchoKOM/Videos/tree/v1
+
 Version 2: https://github.com/OchoKOM/Videos/tree/v2
+
 Version 3: https://github.com/OchoKOM/Videos/tree/v3
+
 Version 4: https://github.com/OchoKOM/Videos/tree/v4
+
 Version 5: https://github.com/OchoKOM/Videos/tree/v5
+
 Version 6: https://github.com/OchoKOM/Videos/tree/v6
+
 
 For the operation of the project
 You must use apache server only (using wamp, xampp or mamp)

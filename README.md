@@ -15,6 +15,17 @@ Après avoir ouvert la page d'accueil cliquez sur "créer" sur la bare de naviga
 Vous serez redirigé vers la page de connexion in suffit juste d'appuyer sur le button "s'inscrire"
 pour s'enregistrer
 
+Les autres versions
+
+Version 1 : https://github.com/OchoKOM/Videos/tree/v1
+
+Version 2 : https://github.com/OchoKOM/Videos/tree/v2
+
+Version 3 : https://github.com/OchoKOM/Videos/tree/v3
+
+Version 4 : https://github.com/OchoKOM/Videos/tree/v4
+
+
 EN
 
 For the operation of the project
@@ -29,3 +40,13 @@ Import the tables that are in the "sql/" folder of the project
 After opening the home page click on "create" or "créer" on the navigation bar
 You will be redirected to the login page just press the "register" button or "s'inscrire" button
 to register
+
+Others versions
+
+Version 1 : https://github.com/OchoKOM/Videos/tree/v1
+
+Version 2 : https://github.com/OchoKOM/Videos/tree/v2
+
+Version 3 : https://github.com/OchoKOM/Videos/tree/v3
+
+Version 4 : https://github.com/OchoKOM/Videos/tree/v4

@@ -15,6 +15,16 @@ Après avoir ouvert la page d'accueil cliquez sur "créer" sur la bare de naviga
 Vous serez redirigé vers la page de connexion in suffit juste d'appuyer sur le button "s'inscrire"
 pour s'enregistrer
 
+Les autres versions
+
+Version 1 : https://github.com/OchoKOM/Videos/tree/v1
+
+Version 2 : https://github.com/OchoKOM/Videos/tree/v2
+
+Version 4 : https://github.com/OchoKOM/Videos/tree/v4
+
+Version 5 : https://github.com/OchoKOM/Videos/tree/v5
+
 EN
 
 For the operation of the project

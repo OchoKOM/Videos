@@ -1,0 +1,15 @@
+#Empecher l'accès direct aux dossiers
+Options -Indexes
+RewriteEngine On
+
+RewriteRule ^login?$ admin/login.php
+RewriteRule ^logout?$ php/logout.php
+RewriteRule ^searchAction?$ php/duration.php
+RewriteRule ^history$ admin/history.php
+RewriteRule ^kom([0-9a-zA-Z]+)$ video.php?id=$1
+RewriteRule ^src_([0-9a-zA-Z]+)$ video.php?location=$1
+RewriteRule ^([0-9a-zA-Z]+)$ admin/profil.php?name=$1
+RewriteRule ^([0-9a-zA-Z]+)/videos$ admin/myVideos.php?vs=$1
+RewriteRule ^edit_video/([0-9a-zA-Z]+) admin/editVideo.php?v=$1
+RewriteRule ^settings/video_([0-9a-zA-Z]+) admin/editVideo.php?v=$1
+RewriteRule ^([0-9a-zA-Z]+)/settings$ admin/settings.php?name=$1

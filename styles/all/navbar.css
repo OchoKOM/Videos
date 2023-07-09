@@ -1,0 +1,446 @@
+:root{
+  --logo-icon: #0021db;
+  --default-nav-bg: #e8eaee;
+  --default-color: #111;
+  --default-body-bg: #fff;
+}
+@media (prefers-color-scheme:dark) {
+  :root{
+      --default-nav-bg: #131619;
+      --default-color: #fff;
+      --default-body-bg: #111213;
+  }
+}
+::-webkit-scrollbar{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 5px;
+}
+body{
+  background: var(--default-body-bg);
+}
+nav{
+  position: fixed;
+  inset: 0;
+  height: 0;
+  width: 100%;
+  z-index: 20;
+}
+svg path{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.topbar .error{
+  color: #ff4500;
+}
+.topbar{
+  position: absolute;
+  left: 60px;
+  background: var(--default-nav-bg);
+  height: 60px;
+  width: calc(100vw - 60px);
+  min-width: 250px;
+}
+.topbar ul:not(.user-menu){
+  width: 100%;
+  height: 100%;
+  padding-right: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar ul li:not(.logo):not(.option){
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+}
+.topbar ul .search-toggle{
+  cursor: pointer !important;
+  display: none !important;
+}
+.topbar ul .searchBox{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topbar ul .searchBox form{
+  height: 60%;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 35px;
+  min-width: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topbar ul .searchBox form input{
+  height: 100%;
+  width: 100%;
+  outline: transparent;
+  border: none;
+  background: #b3b3b36c;
+  color: var(--default-color);
+  padding: 0 15px;
+  font-size: 1em;
+}
+.topbar ul .searchBox form:has(input:focus){
+  outline: 1px solid #00f7ff;
+}
+.topbar ul .searchBox form:has(input:valid){
+  outline: 1px solid #43dc14;
+}
+.topbar ul .searchBox form button{
+  outline: transparent;
+  height: 100%;
+  border: none;
+  background: #999;
+  display: flex;
+  align-items: center;
+  padding: 0 15px 0  10px ;
+  font-size: 1.5em;
+  color: #fff;
+  cursor: pointer;
+}
+.topbar ul .searchBox .suggestion{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--default-nav-bg);
+  border: 1px solid #3d3c3c;
+  height: min-content;
+  width: 0;
+  max-width: 500px;
+  border-radius: 5px;
+  padding: 5px;
+  color: var(--default-color);
+  visibility: hidden;
+  z-index: -1;
+  transition: top .5s ease-out, visibility .5s ease-out, width .5s ease-out;
+}
+.topbar ul .searchBox:has(input:valid) .suggestion:not(.hide){
+  width: 100%;
+  top: 65px;
+  z-index: 200;
+  visibility: visible;
+  transition: visibility .5s ease-in, width .5s ease-in;
+}
+.topbar ul .searchBox .suggestion .option{
+  padding: 5px 15px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.topbar ul .searchBox .suggestion .option:hover{
+  background: #80808075;
+}
+.topbar ul li .icon{
+  display: flex;
+  align-items: center;
+  font-size: 2.5em;
+  color: var(--default-color);
+}
+.topbar ul li a{
+  color: var(--default-color);
+}
+ul li .imgBx{
+  position: relative;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #555;
+  cursor: pointer;
+  overflow: hidden;
+}
+ul li .imgBx::before{
+  content: '';
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 75%;
+  background: #fff;
+  border-radius: 50%;
+}
+ul li .imgBx::after{
+  content: '';
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35%;
+  height: 35%;
+  background: #fff;
+  border-radius: 50%;
+}
+.topbar ul li img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+.topbar ul li .connect{
+  color: #00f;
+  margin-left: 5px;
+  outline: 2px solid #00f;
+  padding: 5px 10px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+.topbar ul li .login-menu{
+  position: absolute;
+  top: 65px;
+  right: -300%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 100px;
+  background: var(--default-nav-bg);
+  padding: 20px;
+  border: 1px solid #3d3c3c;
+  border-radius: 10px;
+  color: var(--default-color);
+  text-align: center;
+  font-size: 20px;
+  z-index: -1;
+  transition: .2s, top .5s;
+}
+.topbar:has(#login-toggle:checked) ul li .login-menu{
+  right: 25px;
+  z-index: 20;
+}
+.topbar ul li .login-menu h2 {
+  display: flex;
+  justify-content: space-between;
+}
+.topbar ul li .login-menu h2 label{
+  font-weight: 100;
+  cursor: pointer;
+}
+.topbar ul li .login-menu input {
+  height: 35px;
+  outline: none;
+  border: 2px solid #00a2ff;
+  background: transparent;
+  padding: 20px 10px;
+  border-radius: 5px;
+  transition: .5s;
+  color: white;
+  font-size: 20px;
+}
+.topbar ul li .login-menu input:focus,
+.topbar ul li .login-menu input:valid {
+  background: #00a2ff;
+}
+
+.topbar ul li .login-menu button {
+  width: 100%;
+  color: white;
+  transition: .5s;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  height: 45px;
+  border-radius: 5px;
+  background: #00a2ff;
+  align-self: flex-end;
+  cursor: pointer;
+}
+.topbar ul li .login-menu a {
+  color: #2214ee  !important;
+}
+.topbar ul li .login-menu a:hover {
+  text-decoration: underline;
+}
+.topbar ul li .user-menu{
+  position: absolute;
+  top: 65px;
+  right: -300px;
+  height: min-content;
+  width: min-content;
+  min-width: 150px;
+  border-radius: 5px;
+  background: var(--default-nav-bg);
+  border: 1px solid #3d3c3c;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.topbar:has(#user-menu:checked) ul li .user-menu{
+  pointer-events: all;
+  right: 5px;
+}
+.topbar ul li .user-menu li{
+  width: 100%;
+  min-width: 150px;
+  padding-right: 10px;
+  position: relative;
+}
+.topbar ul li .user-menu label:not(.logout){
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  top: 0;
+  right: 0;
+  font-size: 2em;
+  background: #03030c;
+  color: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  z-index: 30;
+}
+.topbar ul li .user-menu label:hover{
+  background: #c90808;
+}
+.sidebar{
+  position: absolute;
+  inset: 0;
+  width: 60px;
+  min-width: 60px;
+  max-width: 250px;
+  height: calc(100vh + 60px);
+  background: var(--default-nav-bg);
+  overflow: hidden;
+  overflow-y: auto;
+  transition: .5s;
+}
+.sidebar:hover {
+  width: 60%;
+  min-width: 150px;
+}
+.sidebar:hover::-webkit-scrollbar-thumb{
+  background: var(--default-color);
+}
+.sidebar ul:not(.bottom){
+  position: relative;
+  height: 100vh;
+}
+.sidebar ul.side-logo{
+  position: sticky;
+  height: auto;
+  margin-bottom: 60px;
+}
+.sidebar ul li{
+  list-style: none;
+}
+.sidebar ul li:hover, .topbar ul li .user-menu li:hover {
+  background: #a3a3a3;
+}
+.sidebar ul li a, 
+.sidebar label, 
+.topbar ul li .user-menu li a{
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  white-space: nowrap;
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+.sidebar ul li a .icon, 
+.sidebar label .icon, 
+.topbar ul li .user-menu li a .icon{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 60px;
+  height: 60px;
+  font-size: 1.5em;
+  color: var(--default-color);
+}
+.sidebar ul li a .text, 
+.sidebar label .text, 
+.topbar ul li .user-menu li a .text{
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: var(--default-color);
+}
+.sidebar ul li.logo{
+  position: fixed;
+  background: var(--default-nav-bg);
+  z-index: 30;
+}
+.sidebar ul li.logo .icon{
+  font-size: 2em;
+  color: var(--logo-icon);
+}
+.sidebar ul li.logo .text, .topbar ul li.logo .text{
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.bottom{
+  position: relative;
+  margin-top: 50px;
+  bottom: 0;
+  width: 100%;
+  background: var(--default-nav-bg);
+}
+.pic {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.pic img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+@media (width <= 430px) {
+  .topbar ul .search-toggle{
+      display: flex !important;
+      font-size: 1.5em;
+      color: var(--default-color);
+  }
+  .topbar ul .searchBox{
+      position: absolute !important;
+      top: 50px;
+      right: 10px;
+      width: 90%;
+      visibility: hidden;
+      transition: top 0.3s ease, opacity 0.1s ease;
+      z-index: 2;
+  }
+  .topbar:has(#search-toggle:checked) ul .searchBox{
+      top: 60px;
+      visibility: visible;
+      transition: top 0.3s ease, opacity 0.1s ease;
+  }
+  .topbar ul .searchBox form input{
+    background: #b3b3b3;
+  }
+  .topbar ul li .icon:not(.logo){
+      font-size: 1.9em;
+  }
+  .topbar ul li .imgBx {
+      height: 30px;
+      width: 30px;
+  }
+}

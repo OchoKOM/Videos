@@ -1,0 +1,124 @@
+.profileBx{
+    position: relative;
+    top: 65px;
+    left: 65px;
+    padding: 10px;
+    width: calc(100% - 65px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: var(--clr);
+}
+.profileBx.mobile{
+    left: 0;
+    width: 100%;
+}
+.profileBx .user-pic{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background: #000;
+    transition: 0.5s;
+}
+.profileBx .user-pic:hover{
+    border: 3px solid tan;
+    border-radius: 5px;
+}
+.profileBx .user-pic::before {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 85%;
+    background: #fff;
+    border-radius: 50%;
+}
+.profileBx .user-pic::after {
+    content: '';
+    position: absolute;
+    bottom: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 40%;
+    background: #fff;
+    border-radius: 50%;
+}
+.profileBx .user-pic img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    z-index: 3;
+}
+.profileBx a{
+    color: inherit;
+}
+.date{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-height: 40px;
+} 
+.date img{
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.container .bottom-h svg{
+    height: 25px;
+}
+.container.mobile .bottom-h svg{
+    height: 45px;
+}
+.container.mobile .bottom-h span{
+    display: none;
+}
+.bottom-h:not(.setting){
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+.bottom-h img{
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+    z-index: 3;
+    position: relative;
+}
+.bottom-h:not(.setting)::before {
+    content: '';
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 75%;
+    background: #fff;
+    border-radius: 50%;
+}
+.bottom-h:not(.setting)::after {
+    content: '';
+    position: absolute;
+    bottom: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 40%;
+    background: #fff;
+    border-radius: 50%;
+}

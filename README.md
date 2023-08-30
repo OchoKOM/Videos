@@ -4,7 +4,7 @@ FR
 
 
 Un aperçu du fonctionnement du site 
-http://ochovid.free.nf/?i=1
+http://ochovid.free.nf/
 
 Pour telecharger le projet veuillez visiter les liens ci dessous
 
@@ -37,7 +37,7 @@ pour s'enregistrer
 EN
 
 Website preview
-http://ochovid.free.nf/?i=1
+http://ochovid.free.nf/
 
 To download the project please visit the links below
 

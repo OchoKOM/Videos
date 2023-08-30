@@ -3,6 +3,9 @@
 FR
 
 
+Un aperçu du fonctionnement du site 
+http://ochovid.free.nf/?i=1
+
 Pour telecharger le projet veuillez visiter les liens ci dessous
 
 Version 1 : https://github.com/OchoKOM/Videos/tree/v1
@@ -33,6 +36,8 @@ pour s'enregistrer
 
 EN
 
+Website preview
+http://ochovid.free.nf/?i=1
 
 To download the project please visit the links below
 
